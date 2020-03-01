@@ -1,0 +1,70 @@
+from collections import defaultdict as d
+from itertools import takewhile
+
+def actual_score(processed, inputs):
+    sum([book_scores[x] for x in (inputs - processed)])
+
+B, L, D = map(int, raw_input().split())
+D_copy = D
+book_scores = map(int, raw_input().split())
+
+book_lookup = d(set)
+processed_lib = set()
+processed_books = set()
+lib_arr = [0] * L
+lib_sorts = [0] * L
+lib_heurs = [0] * L
+for lib_idx in xrange(L):
+    book_total, signup_cost, daily_cpcty = map(int, raw_input().split())
+    lib_books = map(int, raw_input().split())
+    lib_arr[lib_idx] = (book_total, signup_cost, daily_cpcty)
+    book_lookup[lib_idx] = set(lib_books)
+    lib_sort = sorted(lib_books, key = lambda x: -book_scores[x])
+    lib_heur = [(0,[])]
+    list_swath = lib_sort[:daily_cpcty]
+    lib_heur.append((lib_heur[-1][0]+sum([book_scores[x] for x in list_swath]), lib_heur[-1][1]+list_swath))
+    lib_heurs[lib_idx] = lib_heur
+    lib_sorts[lib_idx] = lib_sort
+
+unprocessed = set(range(L))    
+ans = d(list)
+ansArr = []
+while D>0 and unprocessed:
+    # lib_heur = lib_heurs[lib_idx][1]
+    score = -1; act_lib_heur = None
+    for lib_idx in unprocessed:
+        lib_heur = sorted(set(lib_sorts[lib_idx])-set(processed_books), key = lambda x: -book_scores[x])#[:lib_arr[lib_idx][2]]
+        pass #print lib_idx, lib_heur, lib_arr[lib_idx]
+        book_sum = sum([book_scores[x] for x in lib_heur])
+        book_avg = book_sum/len(lib_heur) #lib_arr[lib_idx][1]
+        if book_avg > score:
+            act_lib_heur = lib_heur
+            score = book_avg
+            sel_lib = lib_idx
+    # next_process = sorted([(score/len(act_lib_heur), lib_idx) for lib_idx in unprocessed])
+    pass #TODO modify to use takewhile and actual score for greedy comp
+    pass #sel_lib = next_process[-1][1]
+    ansArr.append(sel_lib)
+    #ans[sel_lib] = lib_sorts[sel_lib]
+    unprocessed.remove(sel_lib)
+    processed_lib.add(sel_lib)
+    D -= lib_arr[sel_lib][1]
+
+lib_revsorts = [x[::-1] for x in lib_sorts]
+
+print len(ansArr)
+for _ in xrange(D_copy):
+    for a in ansArr:
+        flag = False
+        while lib_revsorts[a]:
+            candidate = lib_revsorts[a].pop()
+            if candidate not in processed_books:
+                flag = True
+                break
+        if flag:
+            ans[a].append(candidate)
+            processed_books.add(candidate)
+            
+for a in ansArr:
+    print a, len(ans[a])
+    print " ".join(map(str, ans[a]))
