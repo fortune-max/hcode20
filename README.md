@@ -18,9 +18,9 @@ And send that as input to the judge system
 
 This outputs:
 
-_Your submission scored 21 points  
-The library signup has been completed for 2 out of 2 libraries (100.0%)  
-A total of 6 books have been scanned. 6 of which where distinct with an avg score of 3.5. This is 100.0% of the 6 books available across all libraries. The minimum score of a scanned book was 1 and the maximum was 6.  _
+_Your submission scored 21 points_  
+_The library signup has been completed for 2 out of 2 libraries (100.0%)_  
+_A total of 6 books have been scanned. 6 of which where distinct with an avg score of 3.5. This is 100.0% of the 6 books available across all libraries. The minimum score of a scanned book was 1 and the maximum was 6._  
 
 # Files
 inputs/xxxx.txt => Question inputs  
