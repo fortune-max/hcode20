@@ -3,3 +3,28 @@ B - 58.23% of 100,000 books 5,822,900 pts
 C - 18.38% of 100,000 books 5,643,275 pts
 E - 23.02% of 100,000 books 3,978,132 pts
 F - 6.70% of 100,000 books 2,703,359 pts
+
+fortune@fortune-Lenovo-G40-80:~/code/hcode/2020$ python judge.py < concat/b.concat 
+Your submission scored 5831900 points
+The library signup has been completed for 90 out of 100 libraries (90.0%)
+A total of 58319 books have been scanned. 58319 of which where distinct with an avg score of 100.0. This is 58.319% of the 100000 books available across all libraries. The minimum score of a scanned book was 100 and the maximum was 100.
+
+fortune@fortune-Lenovo-G40-80:~/code/hcode/2020$ python judge.py < concat/c.concat 
+Your submission scored 5689822 points
+The library signup has been completed for 1284 out of 10000 libraries (12.84%)
+A total of 18440 books have been scanned. 18440 of which where distinct with an avg score of 308.55867679. This is 18.44% of the 100000 books available across all libraries. The minimum score of a scanned book was 1 and the maximum was 600.
+
+fortune@fortune-Lenovo-G40-80:~/code/hcode/2020$ python judge.py < concat/d.concat 
+Your submission scored 4972955 points
+The library signup has been completed for 14335 out of 30000 libraries (47.7833333333%)
+A total of 76507 books have been scanned. 76507 of which where distinct with an avg score of 65.0. This is 97.3371501272% of the 78600 books available across all libraries. The minimum score of a scanned book was 65 and the maximum was 65.
+
+fortune@fortune-Lenovo-G40-80:~/code/hcode/2020$ python judge.py < concat/e.concat 
+Your submission scored 3710452 points
+The library signup has been completed for 155 out of 1000 libraries (15.5%)
+A total of 18206 books have been scanned. 18206 of which where distinct with an avg score of 203.803800945. This is 18.206% of the 100000 books available across all libraries. The minimum score of a scanned book was 3 and the maximum was 250.
+
+fortune@fortune-Lenovo-G40-80:~/code/hcode/2020$ python judge.py < concat/f.concat 
+Your submission scored 4136257 points
+The library signup has been completed for 17 out of 1000 libraries (1.7%)
+A total of 7530 books have been scanned. 7530 of which where distinct with an avg score of 549.303718459. This is 7.53% of the 100000 books available across all libraries. The minimum score of a scanned book was 83 and the maximum was 800.
